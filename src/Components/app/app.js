@@ -6,8 +6,11 @@ import ErrorIndicator from "../error-indicator";
 import PeoplePage from "../people-page";
 
 import './app.css'
+import SwapiService from "../../services/swapi-service";
 
 export default class App extends Component {
+
+    swapiService = new SwapiService();
 
     state = {
         showRandomPlanet: true,
@@ -42,7 +45,7 @@ export default class App extends Component {
                 <Header/>
                 {planet}
 
-                <div className="row mb2 button-raw">
+                <div className="row mb2 button-row">
                     <button className="toggle-planet btn btn-warning btn-md"
                             onClick={this.toggleRandomPlanet}>
 
@@ -51,8 +54,15 @@ export default class App extends Component {
                     <ErrorButton/>
                 </div>
                 <PeoplePage/>
-                <PeoplePage/>
-                <PeoplePage/>
+                {/*<div className="row mb2">*/}
+                {/*    <div className="col-md-6">*/}
+                {/*        <ItemList onItemSelected={this.onPersonSelected}*/}
+                {/*                  getData={this.swapiService.getAllStarships}/>*/}
+                {/*    </div>*/}
+                {/*    <div className="col-md-6">*/}
+                {/*        <PersonDetails personId={this.state.selectedPerson}/>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
         )
     }
